@@ -1,0 +1,12 @@
+name: maniskill_sim
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - claude-agent-sdk
+    - mani-skill
+    - gymnasium
+    - tqdm
+    - numpy

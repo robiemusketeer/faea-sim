@@ -1,0 +1,13 @@
+name: libero_sim
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - claude-agent-sdk
+    - libero
+    - gymnasium
+    - tqdm
+    - numpy

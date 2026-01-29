@@ -1,0 +1,22 @@
+{
+  "maniskill_all": {
+    "tasks": 14,
+    "description": "All ManiSkill tabletop tasks",
+    "task_list": [
+      {"id": 0, "name": "PickCube-v1", "max_steps": 50, "difficulty": "easy"},
+      {"id": 1, "name": "PushCube-v1", "max_steps": 50, "difficulty": "easy"},
+      {"id": 2, "name": "PullCube-v1", "max_steps": 50, "difficulty": "easy"},
+      {"id": 3, "name": "LiftPegUpright-v1", "max_steps": 50, "difficulty": "medium"},
+      {"id": 4, "name": "StackCube-v1", "max_steps": 50, "difficulty": "medium"},
+      {"id": 5, "name": "PokeCube-v1", "max_steps": 50, "difficulty": "medium"},
+      {"id": 6, "name": "RollBall-v1", "max_steps": 80, "difficulty": "medium"},
+      {"id": 7, "name": "PlaceSphere-v1", "max_steps": 50, "difficulty": "medium"},
+      {"id": 8, "name": "PickSingleYCB-v1", "max_steps": 50, "difficulty": "medium"},
+      {"id": 9, "name": "TurnFaucet-v1", "max_steps": 200, "difficulty": "medium"},
+      {"id": 10, "name": "StackPyramid-v1", "max_steps": 250, "difficulty": "hard"},
+      {"id": 11, "name": "PegInsertionSide-v1", "max_steps": 100, "difficulty": "hard"},
+      {"id": 12, "name": "PlugCharger-v1", "max_steps": 200, "difficulty": "hard"},
+      {"id": 13, "name": "AssemblingKits-v1", "max_steps": 200, "difficulty": "hard"}
+    ]
+  }
+}

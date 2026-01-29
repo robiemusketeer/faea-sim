@@ -1,0 +1,20 @@
+*.pyc
+__pycache__/
+.env
+*.log
+.DS_Store
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+*.so
+.venv/
+venv/
+
+# Data and results (not tracked in repo)
+**/results/
+**/data/
+*.mp4
+*.png
+*.gif

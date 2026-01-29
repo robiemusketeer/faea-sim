@@ -1,0 +1,12 @@
+name: metaworld_sim
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - claude-agent-sdk
+    - metaworld
+    - gymnasium
+    - tqdm
+    - numpy

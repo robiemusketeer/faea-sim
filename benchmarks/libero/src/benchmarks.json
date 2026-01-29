@@ -1,0 +1,7 @@
+{
+  "libero_spatial": {"tasks": 10, "description": "Same task, different spatial arrangements"},
+  "libero_object": {"tasks": 10, "description": "Same action, different objects"},
+  "libero_goal": {"tasks": 10, "description": "Different goals/actions"},
+  "libero_90": {"tasks": 90, "description": "Large diverse set across scenes"},
+  "libero_10": {"tasks": 10, "description": "Long-horizon compound tasks"}
+}
