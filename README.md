@@ -112,10 +112,12 @@ Results are saved to `benchmarks/<benchmark>/data/<experiment>/`:
 If you use this code in your research, please cite:
 
 ```bibtex
-@article{faea2026,
-  title={Frontier Agent as Embodied Agent},
-  author={FAEA Authors},
-  year={2026}
+@article{tsui2026demonstration,
+  title={Demonstration-Free Robotic Control via LLM Agents},
+  author={Tsui, Brian Y. and Fang, Alan Y. and Hwu, Tiffany J.},
+  journal={arXiv preprint arXiv:2601.20334},
+  year={2026},
+  url={https://arxiv.org/abs/2601.20334}
 }
 ```
 
