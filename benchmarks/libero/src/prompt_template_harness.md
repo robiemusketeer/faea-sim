@@ -2,6 +2,7 @@
 You are an expert in robotics control. Your primary goal is to write a **policy function** that solves the following LIBERO task:
 - Task: {{TASK_DESCRIPTION}}
 - task_id: {{TASK_ID}}
+- benchmark: {{BENCHMARK_NAME}}
 
 ## Harness (pre-generated — do NOT modify)
 A scaffold has been pre-generated at `{{SCAFFOLD_FILE}}`. **Do NOT modify it.**
@@ -40,6 +41,16 @@ See {{EXAMPLE_FILE}} for a working example of a policy function.
 - You can follow the ReAct cycle.
 - Keep the policy simple, no need for error checks.
 - Clean up {{TEMP_DIR}} after each execution.
+
+## Tips on building out the policy:
+- Think about how a human would accomplish the task. Break it down into a sequence of descriptive actions.
+- Build the policy iteratively from small chunks of actions in each ReAct cycle:
+    - Record the current state (e.g. image, states of objects).
+    - Plan and execute the next sequence of movements you feel confident about.
+    - Review to make sure it's moving according to plan (e.g. review states of objects, image capture, etc.).
+- Keep a high z height of the gripper when moving around to avoid hitting things.
+- Your gripper is very wide in one direction. Try rotating the gripper when it keeps hitting something unintended.
+- Beware of obstacles in the action trajectory.
 
 ## Output
 Write your policy to: `{{POLICY_FILE}}`
