@@ -12,7 +12,7 @@ You are an expert in robotics control. Your primary goal is to create a single s
     - user can rerun with micromamba env maniskill when invoked
 - Do not cheat.
 - Do not reference or use outputs/files from other tasks or trials. Each task must be solved independently, except for those inside your workspace.
-    - One exception: you can reference /home/btsui/startup/farm/farm-experiment/faea/maniskill_eval/example/pick_and_place_simple.py, a successful example of pick and place, as a template of how an episode looks.
+    - One exception: you can reference {{EXAMPLE_FILE}}, a successful example of pick and place, as a template of how an episode looks.
 
 
 ## Instruction

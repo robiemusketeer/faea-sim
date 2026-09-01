@@ -100,6 +100,48 @@ Results are saved to `benchmarks/<benchmark>/data/<experiment>/`:
 - `episode_N.mp4`: Video recording of the episode
 - `meta_N.json`: Task metadata (success, num_tries)
 
+## Cup-pouring proof of concept
+
+The `coffee_poc` benchmark is a custom ManiSkill task in which a Panda must
+physically grasp a handled cup, lift it, and pour at least six of eight dynamic
+beads into a static bowl. The cup, handle, bowl, and beads use ordinary SAPIEN
+collision primitives; the task does not attach the cup to the gripper or move
+task actors after reset.
+
+After creating and activating `maniskill_sim`, first verify that the dynamic
+cup remains stable and contains all beads:
+
+```bash
+python benchmarks/maniskill/scripts/smoke_pour_beads_task.py \
+    --output-dir /path/to/faea-runs/pour-beads-smoke \
+    --seed 42
+```
+
+Then run the actual FAEA Claude Agent SDK loop:
+
+```bash
+python benchmarks/maniskill/src/run_maniskill_claude.py \
+    --experiment opus45_seed42_v1 \
+    --task-id 100 \
+    --benchmark coffee_poc \
+    --prompt-template benchmarks/maniskill/src/prompt_template_pour_beads.md \
+    --output-dir /path/to/faea-runs \
+    --seed 42
+```
+
+Finally, independently replay the generated episode and reject direct actor
+mutation or missing physical milestones:
+
+```bash
+python benchmarks/maniskill/scripts/verify_generated_episode.py \
+    /path/to/faea-runs/opus45_seed42_v1/episode_100.py \
+    --task-source benchmarks/maniskill/custom_tasks/pour_beads.py \
+    --output /path/to/faea-runs/opus45_seed42_v1/independent_replay_receipt.json
+```
+
+The FAEA run is successful only when the agent result, generated metadata, and
+independent replay all report the live ManiSkill success signal.
+
 ## Requirements
 
 - Python 3.10+

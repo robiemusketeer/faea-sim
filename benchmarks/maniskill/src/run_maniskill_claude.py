@@ -48,10 +48,17 @@ from claude_agent_sdk import (
 # Configuration
 SCRIPT_DIR = Path(__file__).parent.resolve()
 MANISKILL_EVAL_DIR = SCRIPT_DIR.parent
+REPO_ROOT = SCRIPT_DIR.parents[2]
 DATA_DIR = MANISKILL_EVAL_DIR / "data"
 BENCHMARKS_CONFIG = SCRIPT_DIR / "benchmarks_maniskill.json"
 PROMPT_TEMPLATE_PATH = SCRIPT_DIR / "prompt_template_baseline.md"
-EXAMPLE_FILE = (MANISKILL_EVAL_DIR.parent / "examples" / "maniskill_pick_cube.py").resolve()
+EXAMPLE_FILE = (REPO_ROOT / "examples" / "maniskill_pick_cube.py").resolve()
+CUSTOM_TASKS = {
+    "PourBeads-v1": {
+        "module": "custom_tasks.pour_beads",
+        "source": MANISKILL_EVAL_DIR / "custom_tasks" / "pour_beads.py",
+    }
+}
 
 # Default working directory for claude agent
 AGENT_CWD = str(MANISKILL_EVAL_DIR)
@@ -87,6 +94,7 @@ def format_prompt(template: str, task_id: int, task_name: str, output_dir: Path,
     readable_task = task_name.replace("-", " ").replace("_", " ")
     temp_dir = f"/tmp/maniskill_sim_{uuid.uuid4().hex[:8]}"
 
+    custom_task = CUSTOM_TASKS.get(task_name, {})
     replacements = {
         "{{TASK_DESCRIPTION}}": readable_task,
         "{{TASK_ID}}": str(task_id),
@@ -99,6 +107,9 @@ def format_prompt(template: str, task_id: int, task_name: str, output_dir: Path,
         "{{TEMP_DIR}}": temp_dir,
         "{{SEED}}": str(seed),
         "{{EXAMPLE_FILE}}": str(EXAMPLE_FILE),
+        "{{MANISKILL_EVAL_DIR}}": str(MANISKILL_EVAL_DIR),
+        "{{TASK_MODULE}}": custom_task.get("module", ""),
+        "{{TASK_SOURCE_FILE}}": str(custom_task.get("source", "")),
     }
 
     formatted = template

@@ -18,5 +18,12 @@
       {"id": 12, "name": "PlugCharger-v1", "max_steps": 200, "difficulty": "hard"},
       {"id": 13, "name": "AssemblingKits-v1", "max_steps": 200, "difficulty": "hard"}
     ]
+  },
+  "coffee_poc": {
+    "tasks": 1,
+    "description": "Contact-physical cup grasping and bead pouring proof of concept",
+    "task_list": [
+      {"id": 100, "name": "PourBeads-v1", "max_steps": 600, "difficulty": "medium"}
+    ]
   }
 }
